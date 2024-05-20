@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Register</title>
+    <link rel="stylesheet" href="register.css">
+    <script src="register.js"></script>
+</head>
+<body>
+    <div class="container1">
+        <div class="container2">
+            <div class="container3">
+                <div class="mainContainer">
+                    <form action="newRegister.php" method="post" onsubmit="return matchPassword()">
+                        <div class="headerContainer">
+                            <header>
+                                <span>
+                                    <h3>Register Form</h3>
+                                    <p>Please Enter your User Information</p>
+                                </span>
+                            </header>
+                        </div>
+                        <hr>
+                        <br>
+                        <input type="text" name="wholeName" placeholder="Complete Name (ex. Juan Dela Cruz)" required>
+                        <input type="text" name="idNo" placeholder="ID No." required>
+                        <input type="text" name="section" placeholder="Section (ex. 4-G)">
+                        <input type="password" name="password" placeholder="Password" id="password" required>
+                        <input type="password" name="confirm_password" placeholder="Confirm Password" id="confirm_password" required>
+                        
+
+                        <div class="radio">
+                            <label for="admin">Admin</label>
+                            <input type="radio" id="admin" name="role" value="admin" required>
+                            <label for="student">Student</label>
+                            <input type="radio" id="student" name="role" value="student" required>
+                            <label for="instructor">Instructor</label>
+                            <input type="radio" id="instructor" name="role" value="instructor" required>
+                        </div>
+                        <br>
+                        <button type="submit">Register Account</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

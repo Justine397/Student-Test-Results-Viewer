@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="container2">
+            <div class="container3">
+                <div class="mainContainer">
+                    <form action="login.php" method="post">
+                        <div class="headerContainer">
+                            <header>
+                                <span>
+                                    <h3>Sign In</h3>
+                                    <p>Please Enter your User Information</p>
+                                </span>
+                            </header>
+                        </div>
+                        <hr>
+                        <br>
+                        <input type="text" name="idNo" placeholder="ID No." required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember Me</label>
+                        </div>
+                        <br>
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="student.js"></script>
+</body>
+</html>
