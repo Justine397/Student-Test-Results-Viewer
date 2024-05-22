@@ -11,16 +11,19 @@ include '../login/login.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instructor</title>
-    <link rel="stylesheet" href="instructor.css">
+    <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
     <div class="container1">
         <div class="container2">
             <div class="container3">
                 <div class="mainContainer">
+                    <form method="post" action="../logout.php"> <!-- Modify action to logout.php -->
+                        <button type="submit" id="logoutBTN" name="logout">Logout</button>
+                    </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../images/instructor/lisa.jpg" alt="student_image" class="mainIMG">
+                            <img src="../assets/images/instructor/lisa.jpg" alt="student_image" class="mainIMG">
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">
@@ -55,23 +58,23 @@ include '../login/login.php';
                             </div>
                             <div class="tab-content" id="tab1">
                                 <div class="tableWrapper">
-                                    <div class="section">1A</div>
-                                    <div class="section">1B</div>
-                                    <div class="section">1C</div>
+                                    <div class="section">1A - 2A</div>
+                                    <div class="section">1B - 2B</div>
+                                    <div class="section">1C - 2C</div>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab2" style="display: none;">
                                 <div class="tableWrapper">  
-                                    <div class="section">2D</div>
-                                    <div class="section">2E</div>
-                                    <div class="section">2F</div>
+                                    <div class="section">3D - 4D</div>
+                                    <div class="section">3E - 4E</div>
+                                    <div class="section">3F - 4F</div>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab3" style="display: none;">
                                 <div class="tableWrapper">
-                                    <div class="section">3G</div>
-                                    <div class="section">3H</div>
-                                    <div class="section">3I</div>
+                                    <div class="section">5G - 6G</div>
+                                    <div class="section">5H - 6H</div>
+                                    <div class="section">5I - 6I</div>
                                 </div>
                             </div>
                         </div>
@@ -80,6 +83,6 @@ include '../login/login.php';
             </div>
         </div>
     </div>
-<script src="instructor.js"></script>
+<script src="../assets/instructor.js"></script>
 </body>
 </html>

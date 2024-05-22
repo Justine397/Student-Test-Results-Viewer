@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student</title>
-    <link rel="stylesheet" href="student.css">
+    <link rel="stylesheet" href="../assets/style.css">
     
 </head>
 <body>
@@ -16,9 +16,12 @@
         <div class="container2">
             <div class="container3">
                 <div class="mainContainer">
+                    <form method="post" action="../logout.php">
+                      <button type="button" id="logoutBTN" name="logout">Logout</button>
+                    </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../images/students/ayaka.jpg" alt="student_image" class="mainIMG">
+                            <img src="../assets/images/students/ayaka.jpg" alt="student_image" class="mainIMG">
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">

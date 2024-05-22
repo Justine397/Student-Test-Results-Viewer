@@ -1,4 +1,4 @@
-body{
+/* body{
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -47,6 +47,16 @@ body{
 header{
     display: grid;
     grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
+}
+
+#logoutBTN{
+    color: #fff;
+    background-color: #007bff;
+    float: right;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .imgContainer{
@@ -115,4 +125,5 @@ table {
   
   tr:nth-child(even) {
     background-color: #dddddd;
-  }
+  } */
+  

@@ -7,3 +7,6 @@ function matchPassword() {
     }
     return true;
 }
+document.getElementById("cancelBTN").addEventListener("click", function() {
+    history.back();
+});

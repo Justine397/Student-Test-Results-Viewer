@@ -65,6 +65,22 @@ a:hover{
     color: blue;
 }
 
+.backBTN {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #f8f9fa; /* Background color */
+    
+    border-radius: 4px; /* Border radius */
+    padding: 5px 10px; /* Padding */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.backBTN:hover {
+    background-color: #007bff; /* Background color on hover */
+    color: #fff; /* Text color on hover */
+}
+
+
 form {
     background-color: #fff;
     padding: 20px;
@@ -90,8 +106,22 @@ button[type="submit"] {
     border-radius: 4px;
     cursor: pointer;
 }
+
 button[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+button[id="cancelBTN"] {
+    width: 100%;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button[id="cancelBTN"]:hover {
+    background-color: #ebebeb;
+    color: #ff0000;
 }
 
 .radio{

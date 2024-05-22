@@ -11,17 +11,20 @@ include '../login/login.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
-    <link rel="stylesheet" href="admin.css">
-    <script src="admin.js"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+    <script src="../assets/admin.js"></script>
 </head>
 <body>
     <div class="container1">
         <div class="container2">
             <div class="container3">
                 <div class="mainContainer">
+                    <form method="post" action="../logout.php"> <!-- Modify action to logout.php -->
+                        <button type="submit" id="logoutBTN" name="logout">Logout</button>
+                    </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../images/admin/default.jpg" alt="student_image" class="mainIMG">
+                            <img src="../assets/images/admin/default.jpg" alt="student_image" class="mainIMG">
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">
