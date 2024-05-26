@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sms";
+$dbname = "strv";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -46,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['full_name'] = $full_name;
             $_SESSION['section'] = $section;
             $_SESSION['idNo'] = $inputIdNo;
+            $_SESSION['role'] = $role;
 
             // Redirect based on user role
             if ($role == "student") {
@@ -59,15 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             } else {
                 // Unknown role, trigger pop-up message and redirect back to login
-                echo "<script>alert('Unknown role.'); window.location.href = 'index.html';</script>";
+                echo "<script>alert('Unknown role.'); window.location.href = '../index.html';</script>";
             }
         } else {
             // Invalid password, trigger pop-up message and redirect back to login
-            echo "<script>alert('Invalid ID No. or Password.'); window.location.href = 'index.html';</script>";
+            echo "<script>alert('Invalid ID No. or Password.'); window.location.href = '../index.html';</script>";
         }
     } else {
         // No user found with that ID No., trigger pop-up message and redirect back to login
-        echo "<script>alert('Invalid ID No. or Password.'); window.location.href = 'index.html';</script>";
+        echo "<script>alert('Invalid ID No. or Password.'); window.location.href = '../index.html';</script>";
     }
 
     $stmt->close();

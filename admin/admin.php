@@ -3,6 +3,7 @@ session_start(); // Start the session
 
 // Include login.php file
 include '../login/login.php';
+include 'showUsersAdmin.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ include '../login/login.php';
             <div class="container3">
                 <div class="mainContainer">
                     <form method="post" action="../logout.php"> <!-- Modify action to logout.php -->
-                        <button type="submit" id="logoutBTN" name="logout">Logout</button>
+                        <button type="submit" class="logoutBTN" name="logout">Logout</button>
                     </form> 
                     <header>
                         <div class="imgContainer">
@@ -49,8 +50,8 @@ include '../login/login.php';
                             <input type="search" id="search" placeholder="Search Member 🔎">
                             <div id="searchResults"></div>
                         </div>
-                        <div class="populationContainer">
-                            <div class="populationHeader">Population</div>
+                        <div class="removeAccContainer">
+                            <div class="removeAccHeader">Remove Account</div>
                         </div>
                     </div>
                     <hr>
@@ -63,17 +64,23 @@ include '../login/login.php';
                             </div>
                             <div class="tab-content" id="tab1">
                                 <div class="tableWrapper">
-                                     <div>tab 1</div>
+                                    <?php foreach ($tab1 as $user) : ?>
+                                        <div><?php echo htmlspecialchars($user['full_name']) . " " . htmlspecialchars($user['section']); ?></div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab2" style="display: none;">
                                 <div class="tableWrapper">
-                                    <div>tab 2</div>
+                                <?php foreach ($tab2 as $user) : ?>
+                                    <div><?php echo htmlspecialchars($user['full_name']) . " " . htmlspecialchars($user['section']); ?></div>
+                                <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab3" style="display: none;">
                                 <div class="tableWrapper">
-                                    <div>tab 3</div>
+                                    <?php foreach ($tab3 as $user) : ?>
+                                        <div><?php echo htmlspecialchars($user['full_name']) . " " . htmlspecialchars($user['section']); ?></div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

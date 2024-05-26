@@ -17,7 +17,7 @@
             <div class="container3">
                 <div class="mainContainer">
                     <form method="post" action="../logout.php">
-                      <button type="button" id="logoutBTN" name="logout">Logout</button>
+                        <button type="submit" class="logoutBTN" name="logout">Logout</button>
                     </form> 
                     <header>
                         <div class="imgContainer">

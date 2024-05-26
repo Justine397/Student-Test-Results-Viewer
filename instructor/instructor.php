@@ -19,7 +19,7 @@ include '../login/login.php';
             <div class="container3">
                 <div class="mainContainer">
                     <form method="post" action="../logout.php"> <!-- Modify action to logout.php -->
-                        <button type="submit" id="logoutBTN" name="logout">Logout</button>
+                        <button type="submit" class="logoutBTN" name="logout">Logout</button>
                     </form> 
                     <header>
                         <div class="imgContainer">

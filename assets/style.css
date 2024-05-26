@@ -51,7 +51,7 @@ header{
 }
 
 
-#logoutBTN{
+.logoutBTN{
     color: #fff;
     background-color: #007bff;
     float: right;
@@ -94,7 +94,7 @@ header{
 }
 
 
-.populationHeader{
+.removeAccHeader{
     text-align: center;
     width: 100%;
     background-color: #007bff;

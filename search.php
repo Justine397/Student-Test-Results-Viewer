@@ -1,31 +1,46 @@
 <?php
+
+session_start(); // Start the session
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sms";
+$dbname = "strv";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$output = '';
-if(isset($_POST['query'])){
-    $search = $_POST['query'];
-    $sql = "SELECT full_name FROM users WHERE full_name LIKE '%$search%'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $output .= '<div>'.$row['full_name'].'</div>';
-        }
+$query = isset($_POST['query']) ? $_POST['query'] : '';
+
+$user_role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
+
+if (!empty($query)) {
+    if ($user_role === 'instructor') {
+        $stmt = $conn->prepare("SELECT full_name, section FROM users WHERE role = 'student' AND (full_name LIKE ? OR section LIKE ?)");
     } else {
-        $output .= '<div>No results found</div>';
+        $stmt = $conn->prepare("SELECT full_name, section FROM users WHERE full_name LIKE ? OR section LIKE ?");
     }
+
+    $searchTerm = "%".$query."%";
+    $stmt->bind_param('ss', $searchTerm, $searchTerm);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $output = '';
+    while ($row = $result->fetch_assoc()) {
+        $output .= '<div>' . htmlspecialchars($row['full_name']) . '  ' . htmlspecialchars($row['section']) . '</div>';
+    }
+
+    if (empty($output)) {
+        $output = 'No results found.';
+    }
+
+    echo $output;
+    $stmt->close();
 }
 
-echo $output;
 $conn->close();
 ?>
