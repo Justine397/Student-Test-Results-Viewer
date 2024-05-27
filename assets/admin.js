@@ -92,15 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
             fetchUserData(userId);
         });
     });
-    // Handle click event for "view" links
-    var viewLinks = document.querySelectorAll('.view-user');
-    viewLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            var userId = this.getAttribute('data-id');
-            fetchUserData(userId);
-        });
-    });
     function fetchUserData(userId) {
         // Example AJAX call, replace with your implementation
         // Here, we are just displaying a sample message

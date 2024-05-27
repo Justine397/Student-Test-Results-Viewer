@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const modalContent = document.getElementById("modalContentInst");
+
     const tabs = document.querySelectorAll('.tab-button');
     
     tabs.forEach(tab => {
@@ -40,4 +42,70 @@ document.addEventListener('DOMContentLoaded', function() {
             searchResults.innerHTML = '';
         }
     });
+
+    var modal = document.getElementById("userModal");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+    
+    var viewLinks = document.querySelectorAll('.view-user');
+    viewLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            var userId = this.getAttribute('data-id');
+            fetchUserData(userId);
+        });
+    });
+
+    function fetchUserData(userId) {
+        modalContent.innerHTML = "<p>Loading user data...</p>";
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    modalContent.innerHTML = xhr.responseText;
+                    modal.style.display = "block";
+                } else {
+                    modalContent.innerHTML = "<p>Failed to fetch user data.</p>";
+                }
+            }
+        };
+        xhr.open("GET", "modal_contentInst.php?userId=" + userId, true);
+        xhr.send();
+    }
+    function modifyGrades() {
+        var table = document.getElementById('gradesTable');
+        var data = [];
+        for (var i = 1; i < table.rows.length; i++) {
+            var row = table.rows[i];
+            var rowData = [];
+            for (var j = 0; j < row.cells.length; j++) {
+                rowData.push(row.cells[j].innerText);
+            }
+            data.push(rowData);
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'update_grades.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                } else {
+                    console.error('Error:', xhr.statusText);
+                }
+            }
+        };
+        xhr.send(JSON.stringify(data));
+    }
 });

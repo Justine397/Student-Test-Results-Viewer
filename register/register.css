@@ -68,16 +68,16 @@ a:hover{
 .backBTN {
     display: inline-block;
     text-decoration: none;
-    background-color: #f8f9fa; /* Background color */
+    background-color: #f8f9fa;
     
-    border-radius: 4px; /* Border radius */
-    padding: 5px 10px; /* Padding */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    border-radius: 4px;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .backBTN:hover {
-    background-color: #007bff; /* Background color on hover */
-    color: #fff; /* Text color on hover */
+    background-color: #007bff;
+    color: #fff;
 }
 
 

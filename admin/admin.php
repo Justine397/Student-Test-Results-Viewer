@@ -1,7 +1,6 @@
 <?php
-session_start(); // Start the session
+session_start();
 
-// Include login.php file
 include '../login/login.php';
 include 'showUsersAdmin.php';
 include 'population.php';
@@ -41,7 +40,7 @@ include 'population.php';
         <div class="container2">
             <div class="container3">
                 <div class="mainContainer">
-                    <form method="post" action="../logout.php"> <!-- Modify action to logout.php -->
+                    <form method="post" action="../logout.php">
                         <button type="submit" class="logoutBTN" name="logout">Logout</button>
                     </form> 
                     <header>
@@ -96,7 +95,6 @@ include 'population.php';
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
                                         <div id="modalContent">
-                                            <h1>sup</h1>
                                         </div>
                                     </div>
                                 </div>

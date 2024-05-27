@@ -56,34 +56,7 @@
                                             <th>2nd Sem</th>
                                             <th>Final</th>
                                           </tr>
-                                          <tr>
-                                            <td>Jose Flores</td>
-                                            <td>Math</td>
-                                            <td>90</td>
-                                            <td>89</td>
-                                            <td>89.5</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Pepito Echavez</td>
-                                            <td>Science</td>
-                                            <td>82</td>
-                                            <td>89</td>
-                                            <td>85.5</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Junee Mar Aguilar</td>
-                                            <td>Pe</td>
-                                            <td>79</td>
-                                            <td>91</td>
-                                            <td>85</td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>88</td>
-                                          </tr>
+                                          <tbody id="gradesTab1"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -97,34 +70,7 @@
                                             <th>2nd Sem</th>
                                             <th>Final</th>
                                           </tr>
-                                          <tr>
-                                            <td>Pepito Echavez</td>
-                                            <td>Math</td>
-                                            <td>90</td>
-                                            <td>89</td>
-                                            <td>89.5</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Jose Flores</td>
-                                            <td>Science</td>
-                                            <td>82</td>
-                                            <td>89</td>
-                                            <td>85.5</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Junee Mar Aguilar</td>
-                                            <td>Pe</td>
-                                            <td>79</td>
-                                            <td>91</td>
-                                            <td>85</td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>88</td>
-                                          </tr>
+                                          <tbody id="gradesTab2"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -138,35 +84,7 @@
                                             <th>2nd Sem</th>
                                             <th>Final</th>
                                           </tr>
-                                          <tr>
-                                            <td>Jose Flores</td>
-                                            <td>Math</td>
-                                            <td>90</td>
-                                            <td>89</td>
-                                            <td>89.5</td>
-                                          </tr>
-                                          <tr>
-                                            
-                                            <td>Junee Mar Aguilar</td>
-                                            <td>Science</td>
-                                            <td>82</td>
-                                            <td>89</td>
-                                            <td>85.5</td>
-                                          </tr>
-                                          <tr>
-                                            <td>Pepito Echavez</td>
-                                            <td>Pe</td>
-                                            <td>79</td>
-                                            <td>91</td>
-                                            <td>85</td>
-                                          </tr>
-                                          <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>88</td>
-                                          </tr>
+                                          <tbody id="gradesTab3"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -176,6 +94,6 @@
             </div>
         </div>
     </div>
-<script src="student.js"></script>
+<script src="../assets/student.js"></script>
 </body>
 </html>

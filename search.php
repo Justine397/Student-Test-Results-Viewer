@@ -1,6 +1,6 @@
 <?php
 
-session_start(); // Start the session
+session_start();
 
 $servername = "localhost";
 $username = "root";
@@ -44,3 +44,8 @@ if (!empty($query)) {
 
 $conn->close();
 ?>
+
+
+
+<div class='mainContainer'>
+                

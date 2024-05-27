@@ -69,7 +69,14 @@ include '../admin/showUsersAdmin.php';
                             <div id="searchResults"></div>
                         </div>
                     </div>
-                    
+                        <div id="userModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                    <div id="modalContentInst">
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                     <div class="content">
                     <hr>
                         <div class="tab-container">
