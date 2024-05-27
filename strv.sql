@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2024 at 05:00 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: May 27, 2024 at 10:32 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,6 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `grades`
+--
+
+CREATE TABLE `grades` (
+  `grade_int` int(6) NOT NULL,
+  `user_id` int(6) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `grade` decimal(5,2) NOT NULL,
+  `semester` int(6) NOT NULL,
+  `year` int(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -35,8 +51,8 @@ CREATE TABLE `users` (
   `role` enum('student','instructor','admin') NOT NULL,
   `password` varchar(255) NOT NULL,
   `imgPath` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -47,15 +63,22 @@ INSERT INTO `users` (`id`, `full_name`, `IDNo`, `section`, `role`, `password`, `
 (2, 'test', 'test', '', 'admin', '$2y$10$G/AjiZ4sW6bDvJzHzUNHueLnI6oLBxGhnMtRlsB80xPEx4BBlTg/K', '', '2024-05-20 01:08:04'),
 (3, 'Kamisato Ayaka', 'STD-01', '4-G', 'student', '$2y$10$JUauB.NAdkLpSrRlQ9IITuW5jtN4AkVKuIDfoCChyX.30ZOgeYpp.', '', '2024-05-20 01:14:44'),
 (4, 'Lisa Minci', 'INST-039', '4-G', 'instructor', '$2y$10$aD1XFdLyme0PQXy0Zq.Zde6Xamhzh8BLGIZJPW/eX10gZ1r3nW54W', '', '2024-05-20 01:29:17'),
-(5, 'Juan Dela Cruz', 'Juan-1', '4-A', 'instructor', '$2y$10$tr8Y2N4kNbMQHallaxjsT.dsaGpWB46zFgjzhMwSlw75C4pPTBNwa', '', '2024-05-20 01:29:58'),
 (6, 'Jean Gunnhildr', 'STD-02', '4-G', 'student', '$2y$10$vxfjVXwqEfxmz5s9oUVPnegIR9YThKVwQ.yuyNXhrnM3wgCra9mAa', '', '2024-05-20 05:19:10'),
 (7, 'Raiden Ei', 'STD-03', '4-F', 'student', '$2y$10$cv4byV0LMWtcXw3fmdwfAun4C1//EZ9IYQh5l5aqItyIL6HW1L.Mi', '', '2024-05-20 05:39:50'),
-(8, 'Marc Cags', 'Marc-01', '4-F', 'student', '$2y$10$pxFcKxAX9RaVzmlw4s5C9.PpzIAymov2OOdgDW60LebI4gURiQoFG', '', '2024-05-20 13:16:14'),
-(9, 'test1', 'test1', 'test1', 'admin', '$2y$10$kF7eJZDZgtcsqP.fDSDjceRv2q/BgICiRaOuR92f5cE7shrhoLTCO', '', '2024-05-20 13:50:06');
+(9, 'test1', 'test1', 'test1', 'admin', '$2y$10$kF7eJZDZgtcsqP.fDSDjceRv2q/BgICiRaOuR92f5cE7shrhoLTCO', '', '2024-05-20 13:50:06'),
+(10, 'Kirk En', 'STD-04', '1-A', 'student', '$2y$10$zlhXcbzbzx3AbCFu1pmDXuKn4MNjLDHE/OzUpKmhmN63fcUugK1G2', '', '2024-05-27 00:22:54'),
+(11, 'Tommie Webb', 'STD-05', '5-F', 'student', '$2y$10$Pap.96sWZ7.iOyMt4wkFFOl7ZvV87SDylBt9hJ7TY26GGxMWvBmJu', '', '2024-05-27 00:25:29'),
+(12, 'Lennox Tobb', 'STD-06', '2-C', 'student', '$2y$10$hQZpjfxcbODHIb0TAbNN2uO024VWOLkjLrrhpI3BgSSQZZ5ohDQr.', '', '2024-05-27 00:26:53');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `grades`
+--
+ALTER TABLE `grades`
+  ADD PRIMARY KEY (`grade_int`);
 
 --
 -- Indexes for table `users`
@@ -68,10 +91,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `grades`
+--
+ALTER TABLE `grades`
+  MODIFY `grade_int` int(6) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

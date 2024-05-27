@@ -38,8 +38,8 @@
                             </div>
                         </div>
                     </header>
-                    <hr>
                     <div class="content">
+                      <hr>
                         <div class="tab-container">
                             <div class="tab-header">
                                 <button class="tab-button active" data-tab="tab1">1st Year</button>

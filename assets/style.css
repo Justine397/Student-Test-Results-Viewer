@@ -39,11 +39,15 @@ body{
 
 .mainContainer{
     padding: 15px;
-    border-radius: 1%;
     background-color: white;
     height: 100%;
 }
 
+.content{
+    padding: 15px;
+    background-color: white;
+    height: 100%;
+}
 header{
     display: grid;
     grid-template-columns: 50% 50%;
@@ -76,12 +80,6 @@ header{
     color: #fff;
 }
 
-.searchContainer{
-    border-radius: 5%;
-    padding: 5px;
-    background-color: rgb(243, 243, 243);
-}
-
 .searchHeader{
     text-align: center;
     width: 100%;
@@ -93,8 +91,7 @@ header{
     border-radius: 4px;
 }
 
-
-.removeAccHeader{
+.populationHeader{
     text-align: center;
     width: 100%;
     background-color: #007bff;
@@ -104,6 +101,31 @@ header{
     padding-bottom: 10px;
     border-radius: 4px;
 }
+
+.populationHeader {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.populationContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.populationRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.populationCategory {
+    flex: 1;
+}
+
+.populationCount {
+    margin-left: 10px;
+}
+
 
 .imgContainer {
     max-width: 250px; 
@@ -137,6 +159,10 @@ header{
     margin-bottom: 20px;
 }
 
+.instructorFeatures{
+    width: 100%;
+}
+
 .features{
     display: grid;
     grid-template-columns: auto auto auto;
@@ -147,6 +173,13 @@ header{
     width: 100%;
 }
 
+.changeInfoContainer{
+    width: 100%;
+    text-align: center; 
+}
+.changeInfoContainer h3{
+    margin:10px;
+}
 
 .tab-button {
     border: none;
@@ -179,5 +212,43 @@ table {
   }
   
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #d4d4d4;
+  }
+
+  /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
   }

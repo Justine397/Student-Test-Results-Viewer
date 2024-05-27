@@ -9,12 +9,12 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Create database
-    $sql = "CREATE DATABASE IF NOT EXISTS sms";
+    $sql = "CREATE DATABASE IF NOT EXISTS strv";
     $conn->exec($sql);
     echo "Database created successfully<br>";
 
     // Connect to the sms database
-    $conn->exec("use sms");
+    $conn->exec("use strv");
 
     // Create users table
     $sql = "CREATE TABLE IF NOT EXISTS users (
@@ -23,6 +23,7 @@ try {
         IDNo VARCHAR(50) NOT NULL,
         role ENUM('student', 'instructor', 'admin') NOT NULL,
         password VARCHAR(255) NOT NULL,
+        imgPath VARCHAR(255) NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
     $conn->exec($sql);

@@ -3,6 +3,7 @@ session_start(); // Start the session
 
 // Include login.php file
 include '../login/login.php';
+include '../admin/showUsersAdmin.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +11,28 @@ include '../login/login.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instructor</title>
+    <title>GMS - Instructor</title>
     <link rel="stylesheet" href="../assets/style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        td:first-child,
+        td:last-child {
+            width: 10%;
+        }
+        td:nth-child(2) {
+            width: 60%;
+        }
+    </style>
 </head>
 <body>
     <div class="container1">
@@ -41,15 +62,16 @@ include '../login/login.php';
                         </div>
                     </header>
                     <hr>
-                    <div class="features">
-                        <div class="searchContainer">
+                    <div class="instructorFeatures">
+                        <div class="searchContainer" >
                             <div class="searchHeader">Search Student</div>
                             <input type="search" id="search" placeholder="Search Student 🔎">
                             <div id="searchResults"></div>
                         </div>
                     </div>
-                    <hr>
+                    
                     <div class="content">
+                    <hr>
                         <div class="tab-container">
                             <div class="tab-header">
                                 <button class="tab-button active" data-tab="tab1">1st Year</button>
@@ -58,23 +80,68 @@ include '../login/login.php';
                             </div>
                             <div class="tab-content" id="tab1">
                                 <div class="tableWrapper">
-                                    <div class="section">1A - 2A</div>
-                                    <div class="section">1B - 2B</div>
-                                    <div class="section">1C - 2C</div>
+                                <?php foreach ($tab1 as $user) : ?>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['section']); ?>
+                                                </td> 
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['full_name']); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['IDNo']); ?>
+                                                </td> 
+                                                <td>
+                                                    <a href="#" class="view-user" data-id="<?php echo $user['IDNo']; ?>" alt="view" title="View">view</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab2" style="display: none;">
                                 <div class="tableWrapper">  
-                                    <div class="section">3D - 4D</div>
-                                    <div class="section">3E - 4E</div>
-                                    <div class="section">3F - 4F</div>
+                                <?php foreach ($tab2 as $user) : ?>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['section']); ?>
+                                                </td> 
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['full_name']); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['IDNo']); ?>
+                                                </td> 
+                                                <td>
+                                                    <a href="#" class="view-user" data-id="<?php echo $user['IDNo']; ?>" alt="view" title="View">view</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="tab-content" id="tab3" style="display: none;">
                                 <div class="tableWrapper">
-                                    <div class="section">5G - 6G</div>
-                                    <div class="section">5H - 6H</div>
-                                    <div class="section">5I - 6I</div>
+                                <?php foreach ($tab3 as $user) : ?>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['section']); ?>
+                                                </td> 
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['full_name']); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['IDNo']); ?>
+                                                </td> 
+                                                <td>
+                                                    <a href="#" class="view-user" data-id="<?php echo $user['IDNo']; ?>" alt="view" title="View">view</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>

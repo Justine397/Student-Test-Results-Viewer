@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "sms";
+$dbname = "strv";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Execute failed: " . htmlspecialchars($stmt->error));
         }
 
-        echo "<script>alert('Registration successful!'); window.location.href = '../login/index.html';</script>";
+        echo "<script>alert('Registration successful!'); window.location.href = 'register.html';</script>";
         $stmt->close();
     }
 }
