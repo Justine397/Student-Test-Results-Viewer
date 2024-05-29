@@ -1,5 +1,7 @@
 # Grade Management System (GMS)
 
+## **PASSWORD:** ALL ACCOUNT'S PASSWORD IN THE 'strv.sql' is '1'.
+
 ## Installation Instructions
 
 Follow these steps to set up the Grade Management System (GMS) on your local machine.
