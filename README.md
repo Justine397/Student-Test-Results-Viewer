@@ -41,8 +41,6 @@ Follow these steps to set up the Grade Management System (GMS) on your local mac
 
 By following these steps, you should have the Grade Management System up and running on your local machine. If you encounter any issues, please refer to the troubleshooting section below.
 
-Certainly! Here's an updated version of the troubleshooting section in the README file:
-
 ---
 
 ## Troubleshooting
