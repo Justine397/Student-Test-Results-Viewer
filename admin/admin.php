@@ -45,7 +45,15 @@ include 'population.php';
                     </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../assets/images/admin/default.jpg" alt="student_image" class="mainIMG">
+                        <?php
+                        $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
+                        ?>
+                        <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/admin/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
+                        <div class="overlay" id="adminOverlay">Change Photo</div>
+                            <form id="uploadForm" enctype="multipart/form-data">
+                                <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
+                                <input type="file" class="hidden-input" id="file-input" name="profile_pic" accept="image/*">
+                            </form>
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">
@@ -109,6 +117,7 @@ include 'population.php';
                                 <button class="tab-button" data-tab="tab2">2nd Year</button>
                                 <button class="tab-button" data-tab="tab3">3rd Year</button>
                                 <button class="tab-button" data-tab="tab4">Instructors</button>
+                                <button class="tab-button" data-tab="tab5">Admins</button>
                             </div>
                             <div class="tab-content" id="tab1">
                                 <div class="tableWrapper">
@@ -186,6 +195,29 @@ include 'population.php';
                                             <tr>
                                                 <td>
                                                     <?php echo htmlspecialchars($user['section']); ?>
+                                                </td> 
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['full_name']); ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo htmlspecialchars($user['IDNo']); ?>
+                                                </td> 
+                                                <td>
+                                                    <a href="#" class="remove-user" data-id="<?php echo $user['IDNo']; ?>" alt="remove" title="Remove">remove</a>
+                                                    <a href="#" class="view-user" data-id="<?php echo $user['IDNo']; ?>" alt="view" title="View">view</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            <div class="tab-content" id="tab5" style="display: none;">
+                                <div class="tableWrapper">
+                                    <?php foreach ($tab5 as $user) : ?>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <?php echo ''; ?>
                                                 </td> 
                                                 <td>
                                                     <?php echo htmlspecialchars($user['full_name']); ?>

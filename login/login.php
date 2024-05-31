@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputIdNo = $_POST['idNo'];
     $inputPassword = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT id, full_name, section, role, password FROM users WHERE IDNo = ?");
+    $stmt = $conn->prepare("SELECT id, full_name, section, role, imgPath, password FROM users WHERE IDNo = ?");
     if ($stmt === false) {
         die("Prepare failed: " . htmlspecialchars($conn->error));
     }
@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->store_result();
     if ($stmt->num_rows == 1) {
-        $stmt->bind_result($id, $full_name, $section, $role, $hashedPassword);
+        $stmt->bind_result($id, $full_name, $section, $role, $imgPath, $hashedPassword);
         $stmt->fetch();
 
         if (password_verify($inputPassword, $hashedPassword)) {
@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['section'] = $section;
             $_SESSION['idNo'] = $inputIdNo;
             $_SESSION['role'] = $role;
+            $_SESSION['imgPath'] = $imgPath; // Set imgPath here
 
             if ($role == "student") {
                 header("Location: ../student/student.php");

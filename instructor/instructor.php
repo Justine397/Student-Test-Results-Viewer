@@ -1,7 +1,6 @@
 <?php
-session_start(); // Start the session
+session_start();
 
-// Include login.php file
 include '../login/login.php';
 include '../admin/showUsersAdmin.php';
 ?>
@@ -44,7 +43,15 @@ include '../admin/showUsersAdmin.php';
                     </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../assets/images/instructor/lisa.jpg" alt="student_image" class="mainIMG">
+                            <?php
+                            $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
+                            ?>
+                            <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/admin/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
+                            <div class="overlay" id="instOverlay">Change Photo</div>
+                                <form id="uploadForm" enctype="multipart/form-data">
+                                    <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
+                                    <input type="file" class="hidden-input" id="file-input" name="profile_pic" accept="image/*">
+                                </form>
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">
@@ -69,10 +76,50 @@ include '../admin/showUsersAdmin.php';
                             <div id="searchResults"></div>
                         </div>
                     </div>
-                        <div id="userModal" class="modal">
+                        <div id="gradesModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
-                                    <div id="modalContentInst">
+                                <div class='mainContainer'>
+                                    <header>
+                                        <div class='imgContainer'>
+                                            <img src='../assets/images/students/ayaka.jpg' alt='student_image' class='mainIMG'>
+                                        </div>
+                                        <div class='infoContainer'>
+                                            <div class='nameContainer'>
+                                                <div class='info'>Name:</div>
+                                                <span id="studentName"></span>
+                                            </div>
+                                            <div class='idContainer'>
+                                                <div class='info'>ID No.</div>
+                                                <span id="studentID"></span>
+                                            </div>
+                                            <div class='sectionContainer'>
+                                                <div class='info'>Section:</div>
+                                                <span id="studentSection"></span>
+                                            </div>
+                                        </div>
+                                    </header>
+                                    <hr>
+                                    <div class='content'>
+                                        <div class='gradesContainer'>
+                                            <h2>Grades</h2>
+                                            <div class='gradesTable'>
+                                                <table id='gradesTable'>    
+                                                    <tr>
+                                                        <th>Instructor</th>
+                                                        <th>Subject</th>
+                                                        <th>1st Sem</th>
+                                                        <th>2nd Sem</th>
+                                                        <th>Final</th>
+                                                    </tr>
+                                                    <!-- Data fetched via AJAX will be inserted here -->
+                                                </table>
+                                                <br>
+                                                <button id='modifyBtn'>Modify Grades</button>
+                                                <button id='addGradesBtn'>Add Grades</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

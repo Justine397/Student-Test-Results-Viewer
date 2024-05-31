@@ -43,6 +43,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    document.getElementById('instOverlay').addEventListener('click', function() {
+        document.getElementById('file-input').click();
+    });
+    
+    document.getElementById('file-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const formData = new FormData(document.getElementById('uploadForm'));
+            fetch('../uploadProfilePic.php', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      document.getElementById('userImage').src = '../assets/images/upload/' + data.filename;
+                  } else {
+                      alert('Failed to upload image');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+        }
+    });
+
     var modal = document.getElementById("userModal");
 
     var span = document.getElementsByClassName("close")[0];

@@ -42,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("INSERT INTO users (full_name, IDNo, section, password, role) VALUES (?, ?, ?, ?, ?)"); // Modified query to include role
+        $stmt = $conn->prepare("INSERT INTO users (full_name, IDNo, section, password, role) VALUES (?, ?, ?, ?, ?)");
         if ($stmt === false) {
             die("Prepare failed: " . htmlspecialchars($conn->error));
         }
 
-        $bind = $stmt->bind_param("sssss", $fullName, $idNo, $section, $hashedPassword, $role); // Modified to bind role parameter
+        $bind = $stmt->bind_param("sssss", $fullName, $idNo, $section, $hashedPassword, $role);
         if ($bind === false) {
             die("Bind failed: " . htmlspecialchars($stmt->error));
         }

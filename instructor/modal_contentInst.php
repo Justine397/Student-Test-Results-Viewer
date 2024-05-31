@@ -46,7 +46,7 @@ if (isset($_GET['userId'])) {
                                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                                 <title>Student</title>
                                 <script>
-                                    var numericUserId = $numericUserId; // Echo the numeric user ID into JavaScript
+                                    var numericUserId = $numericUserId; 
                                 </script>
                             </head>
                             <body>
@@ -110,7 +110,7 @@ if (isset($_GET['userId'])) {
                                     for (var j = 0; j < row.cells.length; j++) {
                                         rowData.push(row.cells[j].innerText);
                                     }
-                                    rowData.push(numericUserId); // Use the JavaScript variable
+                                    rowData.push(numericUserId);
                                     data.push(rowData);
                                 }
 

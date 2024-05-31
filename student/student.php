@@ -21,7 +21,15 @@
                     </form> 
                     <header>
                         <div class="imgContainer">
-                            <img src="../assets/images/students/ayaka.jpg" alt="student_image" class="mainIMG">
+                            <?php
+                            $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
+                            ?>
+                            <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/admin/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
+                            <div class="overlay" id="studentOverlay">Change Photo</div>
+                                <form id="uploadForm" enctype="multipart/form-data">
+                                    <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
+                                    <input type="file" class="hidden-input" id="file-input" name="profile_pic" accept="image/*">
+                                </form>
                         </div>
                         <div class="infoContainer">
                             <div class="nameContainer">

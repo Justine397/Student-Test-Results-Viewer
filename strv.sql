@@ -91,7 +91,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `full_name`, `IDNo`, `section`, `role`, `password`, `imgPath`, `created_at`) VALUES
-(1, 'Justine Christ Cabornay', 'Admin-01', '', 'admin', '$2y$10$ZR0Un6m.GUnzxvIhz2/QZe.m50EiWLXWRp1jHvg2sfgtOg5eQu78u', './images/admin/default.jpg', '2024-05-20 00:25:17'),
+(1, 'Justine Christ Cabornay', 'Admin-01', '', 'admin', '$2y$10$ZR0Un6m.GUnzxvIhz2/QZe.m50EiWLXWRp1jHvg2sfgtOg5eQu78u', '', '2024-05-20 00:25:17'),
 (2, 'test', 'test', '', 'admin', '$2y$10$G/AjiZ4sW6bDvJzHzUNHueLnI6oLBxGhnMtRlsB80xPEx4BBlTg/K', '', '2024-05-20 01:08:04'),
 (3, 'Kamisato Ayaka', 'STD-01', '4-G', 'student', '$2y$10$JUauB.NAdkLpSrRlQ9IITuW5jtN4AkVKuIDfoCChyX.30ZOgeYpp.', '', '2024-05-20 01:14:44'),
 (4, 'Lisa Minci', 'INST-039', '4-G', 'instructor', '$2y$10$aD1XFdLyme0PQXy0Zq.Zde6Xamhzh8BLGIZJPW/eX10gZ1r3nW54W', '', '2024-05-20 01:29:17'),

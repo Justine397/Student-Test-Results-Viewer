@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             tabContents.forEach(content => {
                 if (content.id === targetTab) {
                     content.style.display = 'block';
-                    fetchGrades(content.id); // Fetch grades when the tab is clicked
+                    fetchGrades(content.id); 
                 } else {
                     content.style.display = 'none'; 
                 }
@@ -19,16 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to fetch and display grades based on the tab ID (year)
     function fetchGrades(tabId) {
-        var year = tabId.charAt(tabId.length - 1); // Extract year from tabId
+        var year = tabId.charAt(tabId.length - 1); 
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
-                    var gradesTab = document.getElementById(tabId).querySelector('tbody'); // Get the tbody element inside the tab
-                    gradesTab.innerHTML = ''; // Clear previous content
+                    var gradesTab = document.getElementById(tabId).querySelector('tbody'); 
+                    gradesTab.innerHTML = ''; 
                     response.forEach(function(grade) {
                         var row = document.createElement('tr');
                         row.innerHTML = '<td>' + grade.instructor_name + '</td>' +
@@ -47,6 +46,30 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
 
-    // Fetch grades for the default tab (1st year) when the page loads
+    document.getElementById('studentOverlay').addEventListener('click', function() {
+        document.getElementById('file-input').click();
+    });
+    
+    document.getElementById('file-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const formData = new FormData(document.getElementById('uploadForm'));
+            fetch('../uploadProfilePic.php', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      document.getElementById('userImage').src = '../assets/images/upload/' + data.filename;
+                  } else {
+                      alert('Failed to upload image');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+        }
+    });
+
     fetchGrades('gradesTab1'); 
 });

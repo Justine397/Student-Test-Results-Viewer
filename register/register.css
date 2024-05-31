@@ -1,67 +1,68 @@
-body{
+body {
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
     height: 100vh;
     font-family: Helvetica;
 }
+
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-.container1{
-    margin: 0px;
-    padding: 0px;
+.container1 {
+    margin: 0;
+    padding: 0;
     display: block;
 }
 
-.container2{
+.container2 {
     margin-left: 375px;
     margin-right: 375px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.container3{
+.container3 {
     margin-left: -15px;
     margin-right: -15px;
     padding-top: 50px;
     padding-bottom: 50px;
 }
 
-.mainContainer{
+.mainContainer {
     padding: 15px;
     border-radius: 1%;
     background-color: white;
     height: 100%;
 }
 
-header{
+header {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 header h3 {
-    text-align: center; 
-    margin: 0; 
+    text-align: center;
+    margin: 0;
 }
 
-a{
+a {
     color: inherit;
     text-decoration: none;
     margin: auto;
 }
 
-a:hover{
+a:hover {
     color: blue;
 }
 
@@ -69,7 +70,6 @@ a:hover{
     display: inline-block;
     text-decoration: none;
     background-color: #f8f9fa;
-    
     border-radius: 4px;
     padding: 5px 10px;
     transition: background-color 0.3s, color 0.3s;
@@ -79,7 +79,6 @@ a:hover{
     background-color: #007bff;
     color: #fff;
 }
-
 
 form {
     background-color: #fff;
@@ -97,6 +96,7 @@ input[type="password"] {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
 button[type="submit"] {
     width: 100%;
     background-color: #007bff;
@@ -119,13 +119,61 @@ button[id="cancelBTN"] {
     border-radius: 4px;
     cursor: pointer;
 }
+
 button[id="cancelBTN"]:hover {
     background-color: #ebebeb;
     color: #ff0000;
 }
 
-.radio{
+.radio {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container2 {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .container3 {
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .mainContainer {
+        padding: 10px;
+        border-radius: 4px;
+        height: auto;
+    }
+    
+    header {
+        flex-direction: column;
+    }
+    
+    .backBTN {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    input[type="text"],
+    input[type="password"],
+    button[type="submit"],
+    button[id="cancelBTN"] {
+        padding: 8px;
+    }
+    
+    form {
+        padding: 15px;
+    }
+    
+    .radio {
+        flex-direction: column;
+    }
 }

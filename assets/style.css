@@ -25,41 +25,49 @@ body {
 }
 
 .container2 {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 768px;
+    margin-left: 375px;
+    margin-right: 375px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .container3 {
-    margin: 0 auto;
+    margin-left: -15px;
+    margin-right: -15px;
     padding-top: 50px;
     padding-bottom: 50px;
-    max-width: 768px;
 }
 
-.mainContainer, .content {
+.mainContainer {
+    padding: 15px;
+    background-color: white;
+    height: 100%;
+}
+
+.content {
     padding: 15px;
     background-color: white;
     height: 100%;
 }
 
 header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 10px;
 }
 
 .logoutBTN {
     color: #fff;
     background-color: #007bff;
+    float: right;
     border: none;
     padding: 10px;
     border-radius: 4px;
-    float: right;
 }
 
-.addAccountHeader, .searchHeader, .populationHeader {
+.addAccountHeader,
+.searchHeader,
+.populationHeader {
     text-align: center;
     width: 100%;
     color: #fff;
@@ -82,7 +90,6 @@ header {
 }
 
 .populationContent {
-    margin: 5px;
     display: flex;
     flex-direction: column;
 }
@@ -102,7 +109,7 @@ header {
 }
 
 .imgContainer {
-    max-width: 250px; 
+    max-width: 250px;
     margin: 0 auto;
 }
 
@@ -127,13 +134,17 @@ header {
     font-weight: bold;
 }
 
-.nameContainer, .idContainer {
+.nameContainer {
+    margin-bottom: 20px;
+}
+
+.idContainer {
     margin-bottom: 20px;
 }
 
 .instructorFeatures {
     width: 99%;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .features {
@@ -148,11 +159,11 @@ header {
 
 .changeInfoContainer {
     width: 100%;
-    text-align: center; 
+    text-align: center;
 }
 
 .changeInfoContainer h3 {
-    margin:10px;
+    margin: 10px;
 }
 
 .tab-button {
@@ -179,7 +190,8 @@ table {
     width: 100%;
 }
 
-td, th {
+td,
+th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -188,7 +200,6 @@ td, th {
 tr:nth-child(even) {
     background-color: #d4d4d4;
 }
-
 
 .modal {
     display: none; 
@@ -199,8 +210,7 @@ tr:nth-child(even) {
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+    background-color: rgba(0, 0, 0, 0.4); 
 }
 
 .modal-content {
@@ -208,7 +218,7 @@ tr:nth-child(even) {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 80%;
 }
 
 .close {
@@ -225,12 +235,52 @@ tr:nth-child(even) {
     cursor: pointer;
 }
 
-@media (max-width: 767px) {
-    .container2, .container3 {
-        padding: 0 10px;
+@media only screen and (max-width: 768px) {
+    .container2 {
+        margin-left: 15px;
+        margin-right: 15px;
     }
+    .modal-content {
+        width: 90%;
+    }
+}
 
-    .mainContainer, .content {
-        padding: 10px;
-    }
+
+.imgContainer {
+    position: relative;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.mainIMG {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid rgb(78, 78, 78);
+    border-radius: 8px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.imgContainer:hover .overlay {
+    opacity: 1;
+}
+
+.hidden-input {
+    display: none;
 }
