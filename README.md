@@ -85,19 +85,3 @@ If you encounter any issues during the setup process or while using the Grade Ma
 3. Try importing the `strv.sql` file into a new, empty database to isolate any existing data conflicts.
 
 If you continue to experience issues, please contact justine.branzuela@gmail.com for further assistance.
-
----
-
-## Note: Work in Progress
-
-**Attention:** This project is still under development and may contain incomplete features or functionalities. Please be aware that certain aspects of the Grade Management System (GMS) may not be fully implemented.
-
-### Ongoing Work List
-
-- **User Image Integration:** Currently, the user image feature is not complete. Work is ongoing to integrate user images into the system for better user identification.
-  
-- **Admin User Management:** The functionality to edit user information from the admin panel is not yet implemented. Administrators will soon be able to update user details such as names, email addresses, and roles.
-
-- **Instructor Grade Modification:** The ability for instructors to modify student grades directly from their interface is still in progress. Once completed, instructors will have the option to adjust grades for individual students.
-
----
