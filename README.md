@@ -20,7 +20,7 @@ Follow these steps to set up the Grade Management System (GMS) on your local mac
 ### Step 3: Create the Database
 
 1. Open your web browser.
-2. Type `localhost/gms/createDB.php` in the address bar and press Enter.
+2. Type `localhost/gms/creatDB.php` in the address bar and press Enter.
 3. This script will create the necessary database for the GMS.
 
 ### Step 4: Import the Database Schema
