@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
               });
         }
     });
-    
 
     var modal = document.getElementById("userModal");
 
@@ -132,4 +131,21 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.open("GET", "modal_content.php?userId=" + userId, true);
         xhr.send();
     }
+
+    document.getElementById('changeInfoForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        var formData = new FormData(this);
+    
+        fetch('update_user.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data);
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    
 });

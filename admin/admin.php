@@ -48,7 +48,7 @@ include 'population.php';
                         <?php
                         $imgPath = isset($_SESSION['imgPath']) ? $_SESSION['imgPath'] : '';
                         ?>
-                        <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/admin/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
+                        <img src="<?php echo !empty($imgPath) ? '../assets/images/upload/' . htmlspecialchars($imgPath) : '../assets/images/default.jpg'; ?>" alt="user_image" class="mainIMG" id="userImage">
                         <div class="overlay" id="adminOverlay">Change Photo</div>
                             <form id="uploadForm" enctype="multipart/form-data">
                                 <input type="hidden" name="userId" value="<?php echo isset($_SESSION['idNo']) ? htmlspecialchars($_SESSION['idNo']) : ''; ?>">
@@ -103,6 +103,47 @@ include 'population.php';
                                     <div class="modal-content">
                                         <span class="close">&times;</span>
                                         <div id="modalContent">
+                                            <!-- Modal content will be populated dynamically -->
+                                            <div class='mainContainer'>
+                                                <header>
+                                                    <div class='imgContainer'>
+                                                        <img id='modalImg' src='' alt='user_image' class='mainIMG'>
+                                                    </div>
+                                                    <div class='infoContainer'>
+                                                        <div class='nameContainer'>
+                                                            <div class='info'>Name:</div>
+                                                            <div id='modalFullName'></div>
+                                                        </div>
+                                                        <div class='idContainer'>
+                                                            <div class='info'>ID No.</div>
+                                                            <div id='modalIDNo'></div>
+                                                        </div>
+                                                        <div class='sectionContainer'>
+                                                            <div class='info'>Section:</div>
+                                                            <div id='modalSection'></div>
+                                                        </div>
+                                                    </div>
+                                                </header>
+                                                <hr>
+                                                <div class='changeInfoContainer'>
+                                                    <h3>Edit User Information</h3>
+                                                    <form id='changeInfoForm'>
+                                                        <label for='newFullName'>New Full Name:</label>
+                                                        <input type='text' id='newFullName' name='newFullName'><br><br>
+                                                        <label for='newIdNo'>New ID No.:</label>
+                                                        <input type='text' id='newIdNo' name='newIdNo'><br><br>
+                                                        <label for='newSection'>New Section:</label>
+                                                        <input type='text' id='newSection' name='newSection'><br><br>
+                                                        <label for='currentPassword'>Current Password:</label>
+                                                        <input type='password' id='currentPassword' name='currentPassword'><br><br>
+                                                        <label for='newPassword'>New Password:</label>
+                                                        <input type='password' id='newPassword' name='newPassword'><br><br>
+                                                        <label for='confirmNewPassword'>Confirm New Password:</label>
+                                                        <input type='password' id='confirmNewPassword' name='confirmNewPassword'><br><br>
+                                                        <button type='submit' id='saveChangesBtn'>Save Changes</button>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

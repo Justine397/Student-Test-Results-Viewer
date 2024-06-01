@@ -1,8 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const modalContent = document.getElementById("modalContentInst");
-
     const tabs = document.querySelectorAll('.tab-button');
-    
     tabs.forEach(tab => {
         tab.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
@@ -22,10 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var searchInput = document.getElementById('search');
     var searchResults = document.getElementById('searchResults');
-
     searchInput.addEventListener('input', function() {
         var query = this.value.trim();
-
         if (query !== '') {
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '../search.php');
@@ -46,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('instOverlay').addEventListener('click', function() {
         document.getElementById('file-input').click();
     });
-    
+
     document.getElementById('file-input').addEventListener('change', function(event) {
         const file = event.target.files[0];
         if (file) {
@@ -69,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     var modal = document.getElementById("userModal");
-
+    var modalContent = document.getElementById("modalContentInst");
     var span = document.getElementsByClassName("close")[0];
 
     span.onclick = function() {
@@ -81,9 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             modal.style.display = "none";
         }
     };
-    
-    var viewLinks = document.querySelectorAll('.view-user');
-    viewLinks.forEach(function(link) {
+
+    document.querySelectorAll('.view-user').forEach(function(link) {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             var userId = this.getAttribute('data-id');
@@ -93,13 +87,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function fetchUserData(userId) {
         modalContent.innerHTML = "<p>Loading user data...</p>";
-
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     modalContent.innerHTML = xhr.responseText;
                     modal.style.display = "block";
+
+                    window.numericUserId = userId;
+
+                    const modifyBtn = document.getElementById('modifyBtn');
+                    if (modifyBtn) {
+                        modifyBtn.addEventListener('click', modifyGrades);
+                    } else {
+                        console.error('Button with id "modifyBtn" not found.');
+                    }
                 } else {
                     modalContent.innerHTML = "<p>Failed to fetch user data.</p>";
                 }
@@ -108,8 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.open("GET", "modal_contentInst.php?userId=" + userId, true);
         xhr.send();
     }
+
     function modifyGrades() {
         var table = document.getElementById('gradesTable');
+        if (!table) {
+            console.error('Table with id "gradesTable" not found.');
+            return;
+        }
+
         var data = [];
         for (var i = 1; i < table.rows.length; i++) {
             var row = table.rows[i];
@@ -117,8 +125,10 @@ document.addEventListener('DOMContentLoaded', function() {
             for (var j = 0; j < row.cells.length; j++) {
                 rowData.push(row.cells[j].innerText);
             }
+            rowData.push(window.numericUserId); 
             data.push(rowData);
         }
+
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'update_grades.php', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -126,8 +136,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     console.log(xhr.responseText);
+                    alert('Grades updated successfully');
                 } else {
                     console.error('Error:', xhr.statusText);
+                    alert('Failed to update grades');
                 }
             }
         };

@@ -45,7 +45,3 @@ if (!empty($query)) {
 $conn->close();
 ?>
 
-
-
-<div class='mainContainer'>
-                

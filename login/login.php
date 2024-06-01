@@ -10,6 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputIdNo = $_POST['idNo'];
     $inputPassword = $_POST['password'];
@@ -41,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['section'] = $section;
             $_SESSION['idNo'] = $inputIdNo;
             $_SESSION['role'] = $role;
-            $_SESSION['imgPath'] = $imgPath; // Set imgPath here
+            $_SESSION['imgPath'] = $imgPath;
 
             if ($role == "student") {
                 header("Location: ../student/student.php");
